@@ -26,22 +26,29 @@ export default function App() {
       const fromParam = params.get('from');
       const toParam = params.get('to');
       if (fromParam && toParam) {
-        return { from: fromParam.toUpperCase(), to: toParam.toUpperCase() };
+        return { 
+          from: fromParam.toUpperCase(), 
+          to: toParam.toUpperCase(),
+          hasParams: true
+        };
       }
     }
-    return { from: 'EUR', to: 'USD' };
+    return { from: 'EUR', to: 'USD', hasParams: false };
   };
 
   const initialParams = getInitialParams();
   const [activeFrom, setActiveFrom] = useState(initialParams.from);
   const [activeTo, setActiveTo] = useState(initialParams.to);
+  const [shouldUpdateUrl, setShouldUpdateUrl] = useState(initialParams.hasParams);
 
   useEffect(() => {
-    const newPath = `/convert/${activeFrom.toUpperCase()}-${activeTo.toUpperCase()}`;
-    if (window.location.pathname !== newPath) {
-      window.history.replaceState(null, '', newPath);
+    if (shouldUpdateUrl) {
+      const newPath = `/convert/${activeFrom.toUpperCase()}-${activeTo.toUpperCase()}`;
+      if (window.location.pathname !== newPath) {
+        window.history.replaceState(null, '', newPath);
+      }
     }
-  }, [activeFrom, activeTo]);
+  }, [activeFrom, activeTo, shouldUpdateUrl]);
 
   const handleToggleFavorite = (pair: FavoritePair) => {
     setFavorites(prev => {
@@ -57,6 +64,7 @@ export default function App() {
   const handleSelectFavorite = (pair: FavoritePair) => {
     setActiveFrom(pair.from);
     setActiveTo(pair.to);
+    setShouldUpdateUrl(true);
   };
 
   const handleConvert = (item: ConversionHistoryItem) => {
@@ -83,8 +91,14 @@ export default function App() {
         onConvert={handleConvert}
         onClearHistory={handleClearHistory}
         onDeleteHistoryItem={handleDeleteHistoryItem}
-        setActiveFrom={setActiveFrom}
-        setActiveTo={setActiveTo}
+        setActiveFrom={(val) => {
+          setActiveFrom(val);
+          setShouldUpdateUrl(true);
+        }}
+        setActiveTo={(val) => {
+          setActiveTo(val);
+          setShouldUpdateUrl(true);
+        }}
       />
       <Chatbot context={`Viewing ${activeFrom} vs ${activeTo}`} />
     </div>

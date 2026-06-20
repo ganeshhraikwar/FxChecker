@@ -1,0 +1,16 @@
+# Host config
+Host: https://fxcheckerr.vercel.app
+
+# Crawl settings for polite indexing
+Crawl-delay: 5
+
+# Allow all search engines and crawlers to access converter and routes
+User-agent: *
+Allow: /
+Allow: /convert/
+
+# Disallow indexing on backend controller endpoints
+Disallow: /api/
+
+# Path to the primary XML Sitemap XML Map
+Sitemap: https://fxcheckerr.vercel.app/sitemap.xml

@@ -11,22 +11,36 @@ export default function App() {
   const [favorites, setFavorites] = useLocalStorage<FavoritePair[]>('currency-favorites', []);
   const [history, setHistory] = useLocalStorage<ConversionHistoryItem[]>('currency-history', []);
   
-  const getInitialParam = (key: string, backup: string) => {
+  const getInitialParams = () => {
     if (typeof window !== 'undefined') {
+      const pathname = window.location.pathname;
+      const match = pathname.match(/^\/convert\/([A-Za-z]{3})-([A-Za-z]{3})/);
+      if (match && match[1] && match[2]) {
+        return {
+          from: match[1].toUpperCase(),
+          to: match[2].toUpperCase()
+        };
+      }
+      
       const params = new URLSearchParams(window.location.search);
-      return params.get(key) || backup;
+      const fromParam = params.get('from');
+      const toParam = params.get('to');
+      if (fromParam && toParam) {
+        return { from: fromParam.toUpperCase(), to: toParam.toUpperCase() };
+      }
     }
-    return backup;
+    return { from: 'EUR', to: 'USD' };
   };
 
-  const [activeFrom, setActiveFrom] = useState(() => getInitialParam('from', 'EUR'));
-  const [activeTo, setActiveTo] = useState(() => getInitialParam('to', 'USD'));
+  const initialParams = getInitialParams();
+  const [activeFrom, setActiveFrom] = useState(initialParams.from);
+  const [activeTo, setActiveTo] = useState(initialParams.to);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    params.set('from', activeFrom);
-    params.set('to', activeTo);
-    window.history.replaceState(null, '', `?${params.toString()}`);
+    const newPath = `/convert/${activeFrom.toUpperCase()}-${activeTo.toUpperCase()}`;
+    if (window.location.pathname !== newPath) {
+      window.history.replaceState(null, '', newPath);
+    }
   }, [activeFrom, activeTo]);
 
   const handleToggleFavorite = (pair: FavoritePair) => {

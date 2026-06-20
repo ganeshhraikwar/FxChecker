@@ -1,6 +1,52 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { useExchangeRates } from '../hooks/useExchangeRates';
+
+function TickerItem({ pair, val, change, isPos }: { pair: string; val: string; change: string; isPos: boolean }) {
+  const prevValRef = useRef(val);
+  const [flash, setFlash] = useState<'up' | 'down' | null>(null);
+
+  useEffect(() => {
+    if (prevValRef.current !== val) {
+      const prevNum = parseFloat(prevValRef.current);
+      const currNum = parseFloat(val);
+      if (!isNaN(prevNum) && !isNaN(currNum) && prevNum !== currNum) {
+        setFlash(currNum > prevNum ? 'up' : 'down');
+        const timer = setTimeout(() => setFlash(null), 1000);
+        prevValRef.current = val;
+        return () => clearTimeout(timer);
+      } else {
+        prevValRef.current = val;
+      }
+    }
+  }, [val]);
+
+  const flashClass = flash === 'up' 
+    ? 'flash-green-anim text-fx-positive' 
+    : flash === 'down' 
+      ? 'flash-red-anim text-fx-negative' 
+      : '';
+
+  return (
+    <div className={`flex items-center px-6 border-r border-fx-border/30 gap-3 text-xs tracking-wide h-full transition-colors duration-500 rounded-sm ${flashClass}`}>
+      <span className="text-gray-400 font-mono font-medium">{pair}</span>
+      
+      <motion.span 
+        key={val}
+        initial={{ y: -5, opacity: 0.3 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 400, damping: 22 }}
+        className="text-gray-100 font-mono font-bold"
+      >
+        {val}
+      </motion.span>
+      
+      <span className={`flex items-center font-mono ${isPos ? 'text-fx-positive' : 'text-fx-negative'}`}>
+        <span className="text-[10px] mr-1">{isPos ? '▲' : '▼'}</span> {change}
+      </span>
+    </div>
+  );
+}
 
 export function TickerTape() {
   const { rates, loading } = useExchangeRates('USD');
@@ -47,35 +93,35 @@ export function TickerTape() {
 
   return (
     <div className="flex bg-fx-bg border-b border-fx-border h-10 overflow-hidden relative">
-      <div className="bg-fx-accent text-fx-bg px-4 py-2 font-bold z-10 flex items-center justify-center shrink-0 uppercase tracking-widest text-xs">
-        <span className="w-1.5 h-1.5 rounded-full bg-fx-bg mr-2"></span>
-        Live Markets
+      <div className="bg-fx-accent text-fx-bg px-3 sm:px-4 py-2 font-bold z-10 flex items-center justify-center shrink-0 uppercase tracking-widest text-[10px] sm:text-xs">
+        <span className="w-1.5 h-1.5 rounded-full bg-fx-bg mr-1.5 sm:mr-2"></span>
+        LIVE Markets
       </div>
       
-      <div className="flex items-center px-4 border-r border-fx-border text-fx-positive text-xs bg-fx-panel shrink-0 font-medium">
+      <div className="flex items-center px-3 sm:px-4 border-r border-fx-border text-fx-positive text-[10px] sm:text-xs bg-fx-panel shrink-0 font-mono font-bold">
          {globalChange}
       </div>
 
-      <div className="flex-1 overflow-hidden relative flex items-center">
+      <div className="flex-1 overflow-hidden relative flex items-center h-full">
         <motion.div
-          className="flex whitespace-nowrap"
-          animate={{ x: [0, -1000] }}
+          className="flex items-center whitespace-nowrap h-full"
+          animate={{ x: [0, -1200] }}
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 20,
+            duration: 25,
             ease: "linear",
           }}
         >
-          {/* Repeat triple for smooth infinite effect */}
+          {/* Repeat quadruple for smooth infinite circular scrolling */}
           {[...tickerData, ...tickerData, ...tickerData, ...tickerData].map((item, idx) => (
-            <div key={idx} className="flex items-center px-6 border-r border-fx-border/30 gap-3 text-xs tracking-wide">
-              <span className="text-gray-400">{item.pair}</span>
-              <span className="text-gray-100">{item.val}</span>
-              <span className={`flex items-center ${item.isPos ? 'text-fx-positive' : 'text-fx-negative'}`}>
-                {item.isPos ? '▲' : '▼'} {item.change}
-              </span>
-            </div>
+            <TickerItem
+              key={`${item.pair}-${idx}`}
+              pair={item.pair}
+              val={item.val}
+              change={item.change}
+              isPos={item.isPos}
+            />
           ))}
         </motion.div>
       </div>

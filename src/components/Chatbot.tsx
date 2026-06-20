@@ -64,7 +64,7 @@ export function Chatbot({ context }: { context?: string }) {
       <button
         onClick={() => setIsOpen(true)}
         className={cn(
-          "fixed bottom-6 right-6 p-4 rounded-full bg-fx-accent outline-none text-fx-bg shadow-lg hover:bg-fx-accent/90 transition-all z-40 focus:ring-4 focus:ring-fx-accent/30",
+          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-4 rounded-full bg-fx-accent outline-none text-fx-bg shadow-lg hover:bg-fx-accent/90 transition-all z-40 focus:ring-4 focus:ring-fx-accent/30",
           isOpen && "scale-0 opacity-0 pointer-events-none"
         )}
       >
@@ -75,11 +75,11 @@ export function Chatbot({ context }: { context?: string }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 w-full max-w-sm sm:w-[400px] h-[600px] max-h-[80vh] flex flex-col bg-fx-panel border border-fx-border rounded-2xl shadow-2xl overflow-hidden z-50 pointer-events-auto"
+            initial={{ opacity: 0, y: 50, scale: 0.92, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: 50, scale: 0.92, filter: "blur(4px)" }}
+            transition={{ type: "spring", stiffness: 280, damping: 26 }}
+            className="fixed bottom-4 right-4 left-4 sm:left-auto sm:right-6 sm:bottom-6 w-auto sm:w-[400px] h-[550px] sm:h-[600px] max-h-[82vh] flex flex-col bg-fx-panel border border-fx-border rounded-2xl shadow-2xl overflow-hidden z-50 pointer-events-auto"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-fx-border bg-[#1b1b1e]">

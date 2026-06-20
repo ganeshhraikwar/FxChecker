@@ -29,14 +29,14 @@ export function ChartWidget({ from, to, timeframe = '1M' }: ChartWidgetProps) {
   }, [data]);
 
   return (
-    <div className="bg-fx-panel border border-fx-border rounded-3xl p-6 h-[400px] flex flex-col relative">
+    <div className="bg-fx-panel border border-fx-border rounded-3xl p-4 sm:p-6 h-[280px] sm:h-[400px] flex flex-col relative">
       
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="text-gray-100 font-sans tracking-widest text-sm uppercase">{from}/{to} - {timeframe}</h3>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-4">
+        <h3 className="text-gray-100 font-sans tracking-widest text-xs sm:text-sm uppercase">{from}/{to} - {timeframe}</h3>
         
         {/* Top Right Info */}
-        <div className="flex items-center gap-4 text-xs font-mono text-fx-text-dim">
+        <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-xs font-mono text-fx-text-dim">
            <span className="text-gray-200">{latestVal}</span>
            <span>•</span>
            <span className="uppercase">{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} EOD</span>
@@ -82,6 +82,9 @@ export function ChartWidget({ from, to, timeframe = '1M' }: ChartWidgetProps) {
                 strokeWidth={2}
                 fillOpacity={1} 
                 fill="url(#colorValue)" 
+                isAnimationActive={true}
+                animationDuration={1500}
+                animationEasing="ease-out"
               />
             </AreaChart>
           </ResponsiveContainer>

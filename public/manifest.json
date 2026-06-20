@@ -1,0 +1,16 @@
+{
+  "name": "FX Checker",
+  "short_name": "FX",
+  "description": "World-class currency exchange app",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#B5FF2E",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

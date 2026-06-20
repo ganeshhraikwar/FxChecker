@@ -1,0 +1,6 @@
+{
+  "name": "CurrencyX",
+  "description": "Live currency converter with favorites, conversion history, and a Gemini AI chatbot assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

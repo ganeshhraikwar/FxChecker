@@ -98,8 +98,16 @@ export function DashboardLayout({
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
+          className="flex flex-col gap-2"
         >
-          <h2 className="text-gray-300 uppercase tracking-widest font-semibold mb-4 text-xs">Check the rate</h2>
+          <div className="mb-2">
+            <h1 className="text-gray-100 text-lg sm:text-2xl font-bold font-sans tracking-tight">
+              FX Checker — <span className="text-fx-accent font-extrabold">Live Currency Converter & AI Market Analytics</span>
+            </h1>
+            <p className="text-fx-text-dim text-xs sm:text-sm font-sans mt-1">
+              Verify global interbank exchange rates instantly, trace historical market movements with high-precision charts, or consult our modern AI-powered expert module for immediate financial wisdom.
+            </p>
+          </div>
           <CurrencyConverter 
             favorites={favorites}
             onToggleFavorite={onToggleFavorite}
@@ -235,6 +243,219 @@ export function DashboardLayout({
             )}
           </motion.div>
         </div>
+
+        {/* 🚀 Rich SEO Explanatory Content Section (H2, H3, lists for indexing) */}
+        <hr className="border-t border-fx-border/50 my-4" />
+        
+        <section className="space-y-12 py-6 font-sans text-gray-300">
+          
+          {/* Section 1: Introduction & H2 */}
+          <div className="space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-100 tracking-tight flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-fx-accent rounded-sm inline-block"></span>
+              Why Use FX Checker for Foreign Exchange & Rates?
+            </h2>
+            <p className="text-sm text-fx-text-dim leading-relaxed">
+              Finding a fast, transparent, and completely automated currency converter shouldn't involve cluttered portals or high fees. <strong>FX Checker</strong> is an open-access, modern monetary calculator created specifically to satisfy both casual travelers and active FX portfolio trackers. By parsing authoritative reference exchange data from the European Central Bank (ECB) and secure interbank APIs, our system maps current market valuations down to sub-millisecond speeds.
+            </p>
+            <p className="text-sm text-fx-text-dim leading-relaxed text-balance">
+              Unlike static conversion pages that reload on every input, our framework operates as a high-density Single Page Application (SPA) offering completely offline-friendly storage, live currency pair bookmarking, customizable alarms, and instant smart-searches.
+            </p>
+          </div>
+
+          {/* Section 2: Core Perks & Grid with H3s */}
+          <div className="space-y-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-100 tracking-tight flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-fx-accent rounded-sm inline-block"></span>
+              Comprehensive Financial Market Features
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              <div className="bg-fx-panel border border-fx-border/80 rounded-2xl p-6 hover:border-fx-accent/40 transition-colors duration-300">
+                <h3 className="text-base font-bold text-fx-accent mb-3 uppercase tracking-wider">
+                  1. Real-Time Conversion Engine
+                </h3>
+                <p className="text-xs text-fx-text-dim leading-relaxed">
+                  Input any global amount to see instant calculations computed dynamically. The real-time cross-rates allow complex intermediate conversions within seconds, completely eliminating manual math errors.
+                </p>
+              </div>
+
+              <div className="bg-fx-panel border border-fx-border/80 rounded-2xl p-6 hover:border-fx-accent/40 transition-colors duration-300">
+                <h3 className="text-base font-bold text-fx-accent mb-3 uppercase tracking-wider">
+                  2. Interactive Exchange Rate Charts
+                </h3>
+                <p className="text-xs text-fx-text-dim leading-relaxed">
+                  Track historical rates across flexible epochs including 1 Day, 1 Week, 1 Month, 3 Months, 1 Year, or a full 5-year outlook. Spot underlying trend patterns and spot support/resistance channels quickly.
+                </p>
+              </div>
+
+              <div className="bg-fx-panel border border-fx-border/80 rounded-2xl p-6 hover:border-fx-accent/40 transition-colors duration-300">
+                <h3 className="text-base font-bold text-fx-accent mb-3 uppercase tracking-wider">
+                  3. Gemini 3.5 AI Financial Expert
+                </h3>
+                <p className="text-xs text-fx-text-dim leading-relaxed">
+                  Ask our integrated intelligence about current macroeconomic shifts, inflation thresholds, currency hedging plans, or specific historical FX ranges. It acts as your personal financial advisor 24/7.
+                </p>
+              </div>
+
+              <div className="bg-fx-panel border border-fx-border/80 rounded-2xl p-6 hover:border-fx-accent/40 transition-colors duration-300">
+                <h3 className="text-base font-bold text-fx-accent mb-3 uppercase tracking-wider">
+                  4. Multi-Currency Portfolio Tracker
+                </h3>
+                <p className="text-xs text-fx-text-dim leading-relaxed">
+                  Maintain a visual mock ledger of multiple overseas holdings. View current valuations, net gains or losses, and check how fluctuations impact your aggregate international assets.
+                </p>
+              </div>
+
+              <div className="bg-fx-panel border border-fx-border/80 rounded-2xl p-6 hover:border-fx-accent/40 transition-colors duration-300">
+                <h3 className="text-base font-bold text-fx-accent mb-3 uppercase tracking-wider">
+                  5. Smart Rate Alerts & Thresholds
+                </h3>
+                <p className="text-xs text-fx-text-dim leading-relaxed">
+                  Establish targeted rate thresholds for your preferred trade pairs. Get immediate visual notifications and cues once the market triggers cross above or slip below your configured points.
+                </p>
+              </div>
+
+              <div className="bg-fx-panel border border-fx-border/80 rounded-2xl p-6 hover:border-fx-accent/40 transition-colors duration-300">
+                <h3 className="text-base font-bold text-fx-accent mb-3 uppercase tracking-wider">
+                  6. Strict Data Privacy & Off-Grid Cache
+                </h3>
+                <p className="text-xs text-fx-text-dim leading-relaxed">
+                  Your bookmarked favorites, configuration properties, and search histories remain locked exclusively in your local device storage. We never collect or harvest private transactional parameters.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Section 3: Supported Globals & Pairs */}
+          <div className="space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-100 tracking-tight flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-fx-accent rounded-sm inline-block"></span>
+              Supported Global Currencies & Major Pairs
+            </h2>
+            <p className="text-sm text-fx-text-dim leading-relaxed">
+              We provide full mathematical lookup models and historical graphs for a robust collection of global fiat assets, including major global reserve systems:
+            </p>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">USD / EUR</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">United States Dollar / Euro</span>
+              </div>
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">GBP / USD</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">British Pound Sterling / USD</span>
+              </div>
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">USD / INR</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">US Dollar / Indian Rupee</span>
+              </div>
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">EUR / JPY</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">Euro / Japanese Yen</span>
+              </div>
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">USD / CAD</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">US Dollar / Canadian Dollar</span>
+              </div>
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">AUD / USD</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">Australian Dollar / USD</span>
+              </div>
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">USD / CHF</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">US Dollar / Swiss Franc</span>
+              </div>
+              <div className="bg-fx-panel/40 border border-fx-border/60 rounded-xl p-3 text-center">
+                <span className="text-xs text-fx-accent font-bold block">GBP / EUR</span>
+                <span className="text-[10px] text-fx-text-dim font-mono">Pound Sterling / Euro</span>
+              </div>
+            </div>
+
+            <p className="text-xs text-fx-text-dim mt-4 leading-relaxed font-sans italic">
+              * Note: All quotes retrieved through our endpoints are indicative rates suited for tracking, educational analysis, and personal verification. For high-stakes institutional wire settlements, please examine certified banking liquid assets.
+            </p>
+          </div>
+
+          {/* Section 4: Offline calculation benefits */}
+          <div className="bg-fx-panel border border-fx-border/60 rounded-2xl p-6 sm:p-8 space-y-4">
+            <h3 className="text-lg font-bold text-gray-100 flex items-center gap-2">
+              ⚡ How Offline Conversion & Routing works on FX Checker
+            </h3>
+            <p className="text-xs sm:text-sm text-fx-text-dim leading-relaxed">
+              When you load our tool on your mobile device or desktop browser, the client instantly loads and caches the modern interbank datasets locally. This means that if you are traveling abroad without cellular connectivity or are experiencing unstable network latency, you can still perform conversions using the last stored indices perfectly! 
+            </p>
+            <p className="text-xs sm:text-sm text-fx-text-dim leading-relaxed">
+              Furthermore, when you toggle active pairs, the platform automatically refactors the URL path dynamically to <code>/convert/FROM-TO</code>. This facilitates immediate bookmarking of your key currency trackers and allows search engine bots to catalog individual page iterations index-by-index.
+            </p>
+          </div>
+
+        </section>
+
+        {/* 🌟 Custom High-Fidelity Branded Footer */}
+        <footer className="border-t border-fx-border/60 py-12 mt-12 font-sans text-xs text-fx-text-dim">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-fx-accent rounded-sm flex items-center justify-center transform -skew-x-12">
+                  <span className="text-fx-bg font-bold text-[10px] font-sans">/</span>
+                </div>
+                <span className="font-bold text-sm tracking-widest text-gray-200 uppercase font-mono">FX_CHECKER</span>
+              </div>
+              <p className="leading-relaxed hover:text-gray-300 transition-colors">
+                Your premier full-stack, secure platform tracking global currency exchange rates, customized portfolio metrics, with real-time analytics and predictive Gemini AI insights. Built for ultimate speed and privacy.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h4 className="font-bold text-gray-200 uppercase tracking-widest text-[10px]">Sitemap Directory</h4>
+              <ul className="space-y-2 font-mono">
+                <li>
+                  <a href="/convert/USD-EUR" className="hover:text-fx-accent transition-colors">↳ convert/USD-EUR</a>
+                </li>
+                <li>
+                  <a href="/convert/EUR-USD" className="hover:text-fx-accent transition-colors">↳ convert/EUR-USD</a>
+                </li>
+                <li>
+                  <a href="/convert/GBP-USD" className="hover:text-fx-accent transition-colors">↳ convert/GBP-USD</a>
+                </li>
+                <li>
+                  <a href="/convert/USD-INR" className="hover:text-fx-accent transition-colors">↳ convert/USD-INR</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h4 className="font-bold text-gray-200 uppercase tracking-widest text-[10px]">Developer Attribution</h4>
+              <p className="leading-relaxed">
+                Authored, styled, and optimized with professional SEO and system-security directives by <strong>Ganesh Raikwar</strong>.
+              </p>
+              <div className="pt-2">
+                <a 
+                  href="https://github.com/ganeshhraikwar/FxChecker" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 bg-fx-border/60 hover:bg-fx-accent hover:text-fx-bg border border-fx-border px-3 py-1.5 rounded-lg text-gray-200 transition-all font-mono active-press"
+                >
+                  📁 Source Code Repository
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-fx-border/40 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
+            <p className="text-[10px]">
+              &copy; {new Date().getFullYear()} FX Checker. Open-source under MIT Standards.
+            </p>
+            <div className="flex gap-4 text-[10px]">
+              <span className="text-fx-accent">ECB indicatives • Indicative-Only</span>
+              <span>•</span>
+              <span className="hover:text-gray-200 transition-colors">Privacy Shield</span>
+            </div>
+          </div>
+        </footer>
 
       </main>
     </div>

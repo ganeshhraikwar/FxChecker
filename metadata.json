@@ -1,6 +1,6 @@
 {
-  "name": "CurrencyX",
-  "description": "Live currency converter with favorites, conversion history, and a Gemini AI chatbot assistant.",
+  "name": "FX Checker",
+  "description": "Secure, full-stack currency converter with real-time FX tracking, historical rates, custom portfolios, and a Gemini 3.5 AI investment expert helper.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

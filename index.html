@@ -14,8 +14,10 @@
     <meta name="keywords" content="currency exchange, fx checker, exchange rates, foreign exchange, live currency rates, currency converter" />
     <meta name="author" content="FX Checker" />
     <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     
     <!-- Open Graph (Social SEO) -->
+    <meta property="og:site_name" content="FX Checker" />
     <meta property="og:title" content="FX Checker - Professional Currency Exchange Converter" />
     <meta property="og:description" content="Get live currency exchange rates, historical charts, and AI market insights. Fast, accurate, and completely free." />
     <meta property="og:type" content="website" />
@@ -27,6 +29,37 @@
     <meta name="twitter:description" content="Get live currency exchange rates, historical charts, and AI market insights." />
     
     <title>FX Checker - Professional Currency Exchange</title>
+    
+    <!-- JSON-LD Structured Data for Google Site Name -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FX Checker",
+      "alternateName": ["FXChecker", "FX Checker App"],
+      "url": "https://fxcheckerr.vercel.app/"
+    }
+    </script>
+
+    <!-- JSON-LD Structured Data for Web Application and Forex Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "FX Checker",
+      "url": "https://fxcheckerr.vercel.app/",
+      "image": "https://fxcheckerr.vercel.app/favicon.svg",
+      "description": "Secure currency conversion platform with live FX rates, historical trends, and premium AI-powered financial market insights.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 and JavaScript.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

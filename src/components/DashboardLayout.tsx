@@ -11,6 +11,7 @@ import { CompareTab } from './CompareTab';
 import { PortfolioTab } from './PortfolioTab';
 import { AlertsTab } from './AlertsTab';
 import { SettingsTab } from './SettingsTab';
+import { GaneshBadge, PortfolioButton } from './GaneshBranding';
 
 interface DashboardLayoutProps {
   favorites: FavoritePair[];
@@ -92,7 +93,7 @@ export function DashboardLayout({
       <TickerTape />
 
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 py-8 flex flex-col gap-8">
-        
+
         {/* Converter Section */}
         <motion.section
           initial={{ opacity: 0, y: 15 }}
@@ -393,6 +394,20 @@ export function DashboardLayout({
           </div>
 
         </section>
+
+        {/* Creator Showcase Banner */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 p-6 rounded-3xl bg-fx-panel/40 border border-fx-border/60 backdrop-blur-md">
+          <div className="flex-1 text-center lg:text-left">
+            <h3 className="text-gray-200 font-bold font-sans text-sm sm:text-base">System Engineered & Curated</h3>
+            <p className="text-fx-text-dim text-xs font-sans mt-1">
+              Explore professional portfolio archives, engineering designs, and technical credentials of the system architect.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <GaneshBadge />
+            <PortfolioButton />
+          </div>
+        </div>
 
         {/* 🌟 Custom High-Fidelity Branded Footer */}
         <footer className="border-t border-fx-border/60 py-12 mt-12 font-sans text-xs text-fx-text-dim">

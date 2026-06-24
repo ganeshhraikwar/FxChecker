@@ -428,16 +428,40 @@ export function DashboardLayout({
               <h4 className="font-bold text-gray-200 uppercase tracking-widest text-[10px]">Sitemap Directory</h4>
               <ul className="space-y-2 font-mono">
                 <li>
-                  <a href="/convert/USD-EUR" className="hover:text-fx-accent transition-colors">↳ convert/USD-EUR</a>
+                  <a 
+                    href="/convert/USD-EUR" 
+                    onClick={(e) => { e.preventDefault(); setActiveFrom('USD'); setActiveTo('EUR'); }}
+                    className="hover:text-fx-accent transition-colors"
+                  >
+                    ↳ convert/USD-EUR
+                  </a>
                 </li>
                 <li>
-                  <a href="/convert/EUR-USD" className="hover:text-fx-accent transition-colors">↳ convert/EUR-USD</a>
+                  <a 
+                    href="/convert/EUR-USD" 
+                    onClick={(e) => { e.preventDefault(); setActiveFrom('EUR'); setActiveTo('USD'); }}
+                    className="hover:text-fx-accent transition-colors"
+                  >
+                    ↳ convert/EUR-USD
+                  </a>
                 </li>
                 <li>
-                  <a href="/convert/GBP-USD" className="hover:text-fx-accent transition-colors">↳ convert/GBP-USD</a>
+                  <a 
+                    href="/convert/GBP-USD" 
+                    onClick={(e) => { e.preventDefault(); setActiveFrom('GBP'); setActiveTo('USD'); }}
+                    className="hover:text-fx-accent transition-colors"
+                  >
+                    ↳ convert/GBP-USD
+                  </a>
                 </li>
                 <li>
-                  <a href="/convert/USD-INR" className="hover:text-fx-accent transition-colors">↳ convert/USD-INR</a>
+                  <a 
+                    href="/convert/USD-INR" 
+                    onClick={(e) => { e.preventDefault(); setActiveFrom('USD'); setActiveTo('INR'); }}
+                    className="hover:text-fx-accent transition-colors"
+                  >
+                    ↳ convert/USD-INR
+                  </a>
                 </li>
               </ul>
             </div>

@@ -63,6 +63,7 @@ export function Chatbot({ context }: { context?: string }) {
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(true)}
+        aria-label="Open support chat"
         className={cn(
           "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-4 rounded-full bg-fx-accent outline-none text-fx-bg shadow-lg hover:bg-fx-accent/90 transition-all z-40 focus:ring-4 focus:ring-fx-accent/30",
           isOpen && "scale-0 opacity-0 pointer-events-none"

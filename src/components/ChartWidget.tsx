@@ -33,7 +33,10 @@ export function ChartWidget({ from, to, timeframe = '1M' }: ChartWidgetProps) {
       
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-4">
-        <h3 className="text-gray-100 font-sans tracking-widest text-xs sm:text-sm uppercase">{from}/{to} - {timeframe}</h3>
+        <h2 className="text-gray-100 font-sans tracking-widest text-xs sm:text-sm uppercase">
+          <span className="sr-only">Historical Currency Chart for </span>
+          {from}/{to} - {timeframe}
+        </h2>
         
         {/* Top Right Info */}
         <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-xs font-mono text-fx-text-dim">
